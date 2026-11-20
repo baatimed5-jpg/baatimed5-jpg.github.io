@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed Baati · AI/ML Portfolio</title>
+<meta name="description" content="AI/ML projects by Mohamed Baati: RAG with verifiable citations, LoRA fine-tuning that beats a 120B model, an MCP security gateway, and more, each with a working demo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <b>Mohamed Baati</b>
+    <nav>
+      <a href="#papertrail">PaperTrail</a>
+      <a href="#lora">Small beats big</a>
+      <a href="#aegis">AegisMCP</a>
+      <a href="#spam">Spam classifier</a>
+      <a href="#clinic">ClinicApp</a>
+      <a href="#library">Library</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">Computer Science student · IIT Sfax, Tunisia</div>
+    <h1>I build AI systems<br>and measure them.</h1>
+    <p class="lead">Every project below comes with a <em>working demo</em> and real numbers: what each component adds, where it fails, what it costs. I'm looking for a <strong>6-month AI/ML final-year internship (PFE) from January 2027</strong>.</p>
+    <div class="links">
+      <a class="btn dark" href="https://www.linkedin.com/in/baatimed-497351404" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/baatimed5-jpg" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="#papertrail">See the demos ↓</a>
+    </div>
+    <div class="facts">
+      <div><b>0.802</b><span>F1 of my 0.5B LoRA model vs 0.784 for a 120B model</span></div>
+      <div><b>99.2%</b><span>prompt-injection attacks blocked by AegisMCP</span></div>
+      <div><b>96%</b><span>Recall@10 of PaperTrail's retrieval pipeline</span></div>
+      <div><b>4</b><span>interactive demos, plus screenshots of the real apps</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+<!-- ============================================================ PaperTrail -->
+<section class="project" id="papertrail">
+  <div class="wrap">
+    <div class="kicker">01 · RAG · Information retrieval</div>
+    <h2>PaperTrail: research-paper assistant with verifiable citations</h2>
+    <p class="pitch">Reads scientific papers and answers with a citation on every claim, pointing to the exact passage and page. It also compares papers, extracts findings and finds research gaps. Click any citation number below to see its source.</p>
+    <div class="metrics">
+      <span class="metric"><b>0.787</b>Recall@1 (exact passage first)</span>
+      <span class="metric"><b>0.963</b>Recall@10</span>
+      <span class="metric"><b>93%</b>answer claims supported (LLM judge)</span>
+      <span class="metric"><b>1,301</b>chunks · 20 papers</span>
+    </div>
+    <div class="demo">
+      <div class="demo-bar"><span>Recorded outputs from the real system (the live version needs a GPU and an LLM key)</span><span>PDF parsing → semantic chunks → BM25 + embeddings → RRF → cross-encoder → GPT-OSS-120B</span></div>
+      <div class="tabs" id="pt-tabs"></div>
+      <div class="demo-body" id="pt-body"></div>
+    </div>
+    <div class="tags"><span>Python</span><span>Sentence-Transformers</span><span>BGE embeddings</span><span>BM25</span><span>Cross-encoder reranking</span><span>PyMuPDF</span><span>Groq · GPT-OSS-120B</span><span>FastAPI</span><span>React</span></div>
+    <div class="row-links"><a class="btn" href="https://github.com/baatimed5-jpg/research-paper-rag" target="_blank" rel="noopener">Code &amp; full results →</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ LoRA -->
+<section class="project" id="lora">
+  <div class="wrap">
+    <div class="kicker">02 · Fine-tuning · LLM evaluation</div>
+    <h2>Small model beats big: a 0.5B LoRA model vs OpenAI's 120B</h2>
+    <p class="pitch">I fine-tuned Qwen2.5-0.5B with LoRA on a 4 GB laptop GPU in 33 minutes to flag offensive messages. On the same 860 human-labelled test messages it beats GPT-OSS-120B, a model 240× bigger, and is about 11× faster and 477× cheaper.</p>
+    <div class="demo">
+      <div class="demo-bar"><span>Real predictions from the test set: pick a message</span><span>wins and losses both shown</span></div>
+      <div class="demo-body" id="lora-body"></div>
+    </div>
+    <div class="tags"><span>PyTorch</span><span>Transformers</span><span>PEFT / LoRA</span><span>Qwen2.5-0.5B</span><span>Groq API</span><span>FastAPI</span><span>React</span></div>
+    <div class="row-links"><a class="btn" href="https://github.com/baatimed5-jpg/small-model-beats-big" target="_blank" rel="noopener">Code &amp; full results →</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ AegisMCP -->
+<section class="project" id="aegis">
+  <div class="wrap">
+    <div class="kicker">03 · LLM security · Agents · MCP</div>
+    <h2>AegisMCP: a security gateway for LLM agents</h2>
+    <p class="pitch">A gateway between AI agents and their tools (Model Context Protocol). Every tool call goes through PII masking, a fine-tuned DeBERTa prompt-injection detector, human approval for risky actions, and a context optimizer that cuts tokens by 79%.</p>
+    <div class="metrics">
+      <span class="metric"><b>99.2%</b>attacks blocked</span>
+      <span class="metric"><b>0.8%</b>false positives</span>
+      <span class="metric"><b>0.962</b>F1 (DeBERTa detector)</span>
+      <span class="metric"><b>79%</b>fewer tokens per tool result</span>
+    </div>
+    <div class="demo">
+      <div class="demo-bar"><span>Attack lab: 120 real injection attacks from the evaluation, replayed per security profile</span><span>green = blocked · red = got through</span></div>
+      <div class="demo-body" id="aegis-body"></div>
+    </div>
+    <div class="tags"><span>Python</span><span>MCP</span><span>PyTorch</span><span>DeBERTa</span><span>Presidio</span><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>Docker</span><span>Angular</span></div>
+    <div class="row-links"><a class="btn" href="https://github.com/baatimed5-jpg/aegis-mcp" target="_blank" rel="noopener">Code &amp; evaluation report →</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ Spam -->
+<section class="project" id="spam">
+  <div class="wrap">
+    <div class="kicker">04 · Classic ML · NLP</div>
+    <h2>Spam classifier that explains itself</h2>
+    <p class="pitch">TF-IDF features with a Linear SVM, compared against Naive Bayes and Logistic Regression: 99.0% accuracy on unseen SMS. The real trained model runs below, inside your browser.</p>
+    <div class="metrics">
+      <span class="metric"><b>99.0%</b>accuracy</span>
+      <span class="metric"><b>0.963</b>F1 (spam class)</span>
+      <span class="metric"><b>12,007</b>features</span>
+    </div>
+    <div class="demo spam">
+      <div class="demo-bar"><span class="live">Live: the real model, exported to JSON, runs in your browser</span><span>words pushing toward spam in red, toward normal in green</span></div>
+      <div class="demo-body" id="spam-body"></div>
+    </div>
+    <div class="tags"><span>scikit-learn</span><span>TF-IDF</span><span>Linear SVM</span><span>FastAPI</span><span>React</span></div>
+    <div class="row-links"><a class="btn" href="https://github.com/baatimed5-jpg/spam-classifier" target="_blank" rel="noopener">Code →</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ ClinicApp -->
+<section class="project" id="clinic">
+  <div class="wrap">
+    <div class="kicker">05 · Software engineering · Web</div>
+    <h2>ClinicApp: clinic management system</h2>
+    <p class="pitch">Patients, doctors, appointments and medical records, with UML use-case and class diagrams. Built with ASP.NET Core MVC and Entity Framework Core on SQL Server.</p>
+    <div class="demo">
+      <div class="demo-bar"><span>Screenshots of the running app (sample data)</span><span>ASP.NET Core MVC · .NET 10</span></div>
+      <div class="demo-body" id="clinic-body"></div>
+    </div>
+    <div class="tags"><span>C#</span><span>ASP.NET Core MVC</span><span>Entity Framework Core</span><span>SQL Server</span><span>Bootstrap</span></div>
+    <div class="row-links"><a class="btn" href="https://github.com/baatimed5-jpg/clinic-app" target="_blank" rel="noopener">Code →</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ Library -->
+<section class="project" id="library">
+  <div class="wrap">
+    <div class="kicker">06 · Software engineering · Desktop</div>
+    <h2>Library Management System</h2>
+    <p class="pitch">Desktop app with two roles: administrators manage the catalogue and approve requests, members borrow, reserve and return books. Passwords hashed with BCrypt, forced password change on first login.</p>
+    <div class="demo">
+      <div class="demo-bar"><span>Desktop app (JavaFX): features and architecture</span><span>Java 17 · Spring Boot JDBC · MySQL</span></div>
+      <div class="demo-body">
+        <div class="two" style="margin-top:0">
+          <div>
+            <ul class="feature-list" style="columns:1">
+              <li><b>Admin:</b> dashboard, books and physical copies (CRUD), user management</li>
+              <li><b>Admin:</b> approve or reject borrowing and return requests, manage reservations</li>
+              <li><b>Member:</b> browse, request to borrow, reserve, request returns, history</li>
+              <li><b>Security:</b> BCrypt hashing, first-login password change, role-based screens</li>
+            </ul>
+          </div>
+          <pre class="arch">model/       Book, BookCopy, User, Reservation,
+             BorrowingRecord, BorrowingRequest, ReturnRequest
+dao/         one DAO per entity (Spring JdbcTemplate)
+controller/  one JavaFX controller per screen
+util/        SceneManager, SessionManager, SpringContext
+resources/   FXML screens, schema.sql</pre>
+        </div>
+      </div>
+    </div>
+    <div class="tags"><span>Java 17</span><span>JavaFX</span><span>Spring Boot</span><span>JDBC</span><span>MySQL</span><span>BCrypt</span><span>Maven</span></div>
+    <div class="row-links"><a class="btn" href="https://github.com/baatimed5-jpg/library-management-system" target="_blank" rel="noopener">Code →</a></div>
+  </div>
+</section>
+</main>
+
+<section class="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skill-grid">
+      <div><h3>AI / ML</h3><p>PyTorch · Transformers · PEFT/LoRA · RAG (hybrid search, reranking) · scikit-learn · LLM APIs · MCP · evaluation</p></div>
+      <div><h3>Backend</h3><p>Python · FastAPI · C# / ASP.NET Core · Java / Spring · PHP</p></div>
+      <div><h3>Frontend &amp; mobile</h3><p>React · Angular · Next.js · React Native · Flutter</p></div>
+      <div><h3>Data &amp; tools</h3><p>PostgreSQL · MySQL · SQL Server · Redis · Docker · Git</p></div>
+    </div>
+    <p class="note" style="margin-top:20px">Languages: English (fluent) · French (intermediate) · Arabic (native) · ISTQB Certified Tester</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Mohamed Baati · <a href="https://www.linkedin.com/in/baatimed-497351404" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/baatimed5-jpg" target="_blank" rel="noopener">GitHub</a></div>
+</footer>
+
+<script src="js/demos.js" defer></script>
+</body>
+</html>

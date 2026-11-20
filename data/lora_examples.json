@@ -1,0 +1,90 @@
+{
+ "examples": [
+  {
+   "text": "Anyway this game sucks :)",
+   "label": 1,
+   "lora": 0.818,
+   "api": 0.0,
+   "base": 0.133
+  },
+  {
+   "text": "#Florence looks like she is getting ready to explode. Notice the eye starting to reappear.",
+   "label": 0,
+   "lora": 0.148,
+   "api": 1.0,
+   "base": 0.852
+  },
+  {
+   "text": "#SandraOh...OH how I love that you brought your parents...they (and you) are the epitome of grace and beauty!",
+   "label": 0,
+   "lora": 0.018,
+   "api": 1.0,
+   "base": 0.245
+  },
+  {
+   "text": "@user Gul Bukhari is Gul Bukhari bcoz she is her own! Iron Lady! More Power to you 👊👍👌",
+   "label": 0,
+   "lora": 0.053,
+   "api": 0.0,
+   "base": 0.947
+  },
+  {
+   "text": "@user - WORST POTUS.  EVER!",
+   "label": 1,
+   "lora": 0.706,
+   "api": 0.0,
+   "base": 1.0
+  },
+  {
+   "text": "@user How is she hiding her ugly personality. She is the worst.",
+   "label": 1,
+   "lora": 0.852,
+   "api": 1.0,
+   "base": 1.0
+  },
+  {
+   "text": "Always a good day when I get a new member on my site",
+   "label": 0,
+   "lora": 0.01,
+   "api": 0.0,
+   "base": 0.0
+  },
+  {
+   "text": "Amazon will ship live Christmas trees to your door — but will they stay and put on the damn lights?",
+   "label": 1,
+   "lora": 0.182,
+   "api": 1.0,
+   "base": 0.999
+  },
+  {
+   "text": "@user #Rosie makes me nauseous!🤮",
+   "label": 1,
+   "lora": 0.321,
+   "api": 1.0,
+   "base": 0.999
+  }
+ ],
+ "results": [
+  {
+   "name": "Qwen 0.5B, zero-shot",
+   "f1": 0.568,
+   "acc": 0.57,
+   "ms": 34,
+   "cost": "~$0.08"
+  },
+  {
+   "name": "Qwen 0.5B + LoRA (mine)",
+   "f1": 0.802,
+   "acc": 0.857,
+   "ms": 42,
+   "cost": "~$0.10"
+  },
+  {
+   "name": "OpenAI GPT-OSS-120B",
+   "f1": 0.784,
+   "acc": 0.833,
+   "ms": 473,
+   "cost": "$47.70"
+  }
+ ]
+}
