@@ -223,17 +223,15 @@ async function spam() {
   run();
 }
 
-// ---------------------------------------------------------------- 5. ClinicApp gallery
-function clinic() {
-  const shots = [["Appointments", "clinic-real-appointments.png"], ["Patients", "clinic-real-patients.png"], ["Doctors", "clinic-real-doctors.png"],
-    ["Medical records", "clinic-real-records.png"], ["New patient form", "clinic-real-newpatient.png"], ["Home", "clinic-real-home.png"], ["Class diagram", "clinic-class_diagram.png"]];
-  const el = $("#clinic-body");
+// ---------------------------------------------------------------- 5. Screenshot galleries (Kompass, ClinicApp)
+function gallery(id, label, shots) {
+  const el = document.getElementById(id);
   el.innerHTML = `<div class="gallery"><div class="thumbs">${shots.map(([n], i) => `<button data-i="${i}">${n}</button>`).join("")}</div><div class="main"><img alt=""></div></div>`;
   const show = (i) => {
     el.querySelectorAll(".thumbs button").forEach((b) => b.classList.toggle("on", +b.dataset.i === i));
     const img = $("img", el);
     img.src = "img/" + shots[i][1];
-    img.alt = "ClinicApp: " + shots[i][0];
+    img.alt = label + ": " + shots[i][0];
   };
   el.querySelectorAll(".thumbs button").forEach((b) => (b.onclick = () => show(+b.dataset.i)));
   show(0);
@@ -244,4 +242,7 @@ guard(paperTrail, "pt-body");
 guard(lora, "lora-body");
 guard(aegis, "aegis-body");
 guard(spam, "spam-body");
-clinic();
+gallery("kompass-gallery", "Kompass", [["Service requests", "kompass-requests.png"], ["Interventions", "kompass-interventions.png"],
+  ["Clients", "kompass-clients.png"], ["Equipment catalogue", "kompass-equipment.png"], ["Login", "kompass-login.png"]]);
+gallery("clinic-body", "ClinicApp", [["Appointments", "clinic-real-appointments.png"], ["Patients", "clinic-real-patients.png"], ["Doctors", "clinic-real-doctors.png"],
+  ["Medical records", "clinic-real-records.png"], ["New patient form", "clinic-real-newpatient.png"], ["Home", "clinic-real-home.png"], ["Class diagram", "clinic-class_diagram.png"]]);

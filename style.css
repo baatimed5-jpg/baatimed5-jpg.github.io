@@ -169,6 +169,14 @@ table.simple th { font: 500 11px var(--mono); text-transform: uppercase; color: 
 .feature-list li { margin-bottom: 6px; break-inside: avoid; }
 pre.arch { background: var(--bg); border: 1px solid var(--rule); padding: 14px; overflow-x: auto; font: 13px/1.5 var(--mono); margin: 0; }
 
+.more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+.more-card { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px; }
+.more-card b { font: 600 18px/1.25 var(--serif); display: block; }
+.more-card small { color: var(--muted); font: 12px var(--mono); }
+.more-card p { margin: 8px 0 0; font-size: 15px; }
+.more-card .tags { margin-top: 10px; }
+@media (max-width: 900px) { .more-grid { grid-template-columns: 1fr; } }
+
 .skills { padding: 56px 0; }
 .skills h2 { font: 600 32px var(--serif); margin: 0 0 18px; }
 .skill-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }

@@ -19,8 +19,10 @@
       <a href="#lora">Small beats big</a>
       <a href="#aegis">AegisMCP</a>
       <a href="#spam">Spam classifier</a>
+      <a href="#kompass">Kompass</a>
       <a href="#clinic">ClinicApp</a>
       <a href="#library">Library</a>
+      <a href="#more">More</a>
     </nav>
   </div>
 </header>
@@ -123,10 +125,54 @@
   </div>
 </section>
 
+<!-- ============================================================ Kompass -->
+<section class="project" id="kompass">
+  <div class="wrap">
+    <div class="kicker">05 · Internship at Steros · Full-stack</div>
+    <h2>Kompass: customer-support and service management platform</h2>
+    <p class="pitch">During my internship at Steros (Sfax, June–July 2026) I helped build Kompass, a web platform that a service company uses to manage its clients, equipment, contracts and technician interventions, with a self-service portal for customers and live chat. I also migrated its database from SQL Server to PostgreSQL.</p>
+    <div class="metrics">
+      <span class="metric"><b>.NET 10</b>ASP.NET Core backend</span>
+      <span class="metric"><b>SQL Server → PostgreSQL</b>database migration</span>
+      <span class="metric"><b>Real-time</b>chat and live updates (SignalR)</span>
+    </div>
+    <div class="demo">
+      <div class="demo-bar"><span>Screenshots of the running app with made-up demo data (company code stays private)</span><span>ASP.NET Core 10 MVC · PostgreSQL</span></div>
+      <div class="demo-body">
+        <div id="kompass-gallery"></div>
+        <div class="two">
+          <div>
+            <ul class="feature-list" style="columns:1">
+              <li><b>Staff app:</b> clients, equipment catalogue, service contracts, interventions (service jobs) and service requests</li>
+              <li><b>Team:</b> staff and technician management, dashboard summary, reports, notifications</li>
+              <li><b>Client portal:</b> customers follow their equipment, contracts and requests themselves</li>
+              <li><b>Real-time:</b> live chat and instant updates over WebSocket (SignalR); email notifications over SMTP</li>
+              <li><b>Security:</b> cookie authentication with roles (admin, technician, client); clients only ever see the portal</li>
+            </ul>
+          </div>
+          <pre class="arch">Back-office (Razor + Bootstrap) · client portal
+        │  REST /api/...  (JSON)
+        │  SignalR WebSocket (chat, live updates)
+        ▼
+ASP.NET Core 10 backend
+  auth · clients · equipment · contracts
+  interventions · requests · personnel
+  dashboard · reports · notifications
+  client portal API · SMTP email
+        │
+        ▼
+PostgreSQL  (migrated from SQL Server)</pre>
+        </div>
+      </div>
+    </div>
+    <div class="tags"><span>C#</span><span>ASP.NET Core 10 MVC</span><span>Entity Framework Core</span><span>Razor</span><span>Bootstrap</span><span>Next.js</span><span>PostgreSQL</span><span>SQL Server</span><span>SignalR</span><span>REST API</span></div>
+  </div>
+</section>
+
 <!-- ============================================================ ClinicApp -->
 <section class="project" id="clinic">
   <div class="wrap">
-    <div class="kicker">05 · Software engineering · Web</div>
+    <div class="kicker">06 · Software engineering · Web</div>
     <h2>ClinicApp: clinic management system</h2>
     <p class="pitch">Patients, doctors, appointments and medical records, with UML use-case and class diagrams. Built with ASP.NET Core MVC and Entity Framework Core on SQL Server.</p>
     <div class="demo">
@@ -141,7 +187,7 @@
 <!-- ============================================================ Library -->
 <section class="project" id="library">
   <div class="wrap">
-    <div class="kicker">06 · Software engineering · Desktop</div>
+    <div class="kicker">07 · Software engineering · Desktop</div>
     <h2>Library Management System</h2>
     <p class="pitch">Desktop app with two roles: administrators manage the catalogue and approve requests, members borrow, reserve and return books. Passwords hashed with BCrypt, forced password change on first login.</p>
     <div class="demo">
@@ -167,6 +213,31 @@ resources/   FXML screens, schema.sql</pre>
     </div>
     <div class="tags"><span>Java 17</span><span>JavaFX</span><span>Spring Boot</span><span>JDBC</span><span>MySQL</span><span>BCrypt</span><span>Maven</span></div>
     <div class="row-links"><a class="btn" href="https://github.com/baatimed5-jpg/library-management-system" target="_blank" rel="noopener">Code →</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ More -->
+<section class="project" id="more">
+  <div class="wrap">
+    <div class="kicker">08 · Academic projects</div>
+    <h2>More projects</h2>
+    <div class="more-grid">
+      <div class="more-card">
+        <b>Hotel reservation website</b><small>2026</small>
+        <p>Room search, online booking and an admin area to manage rooms and reservations.</p>
+        <div class="tags"><span>PHP</span><span>MySQL</span></div>
+      </div>
+      <div class="more-card">
+        <b>Premier League system &amp; Car rental</b><small>2025</small>
+        <p>Two relational databases: football clubs, players and match statistics; and a car rental management system with stored procedures.</p>
+        <div class="tags"><span>SQL</span><span>PL/SQL</span></div>
+      </div>
+      <div class="more-card">
+        <b>Car store website &amp; Flappy Bird game</b><small>2025</small>
+        <p>A responsive car store website and a Flappy Bird–style game playable in the browser.</p>
+        <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      </div>
+    </div>
   </div>
 </section>
 </main>
