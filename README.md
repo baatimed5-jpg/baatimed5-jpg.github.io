@@ -13,7 +13,6 @@ A one-page portfolio where every project has a demo built from its real outputs:
 | Kompass (internship at Steros, private code) | Screenshots of the running ASP.NET Core app on a separate demo database with made-up data, plus architecture |
 | [ClinicApp](https://github.com/baatimed5-jpg/clinic-app) | Screenshots of the running ASP.NET Core app (sample data) |
 | [Library Management System](https://github.com/baatimed5-jpg/library-management-system) | Features and architecture |
-| More projects | Hotel reservation website, Premier League & car rental databases, car store website & Flappy Bird game |
 
 Plain HTML/CSS/JS, no build step. `tools/` holds the scripts that exported the demo data from each project
 (`export_spam.py` checks that the browser version gives exactly the same scores as scikit-learn).
